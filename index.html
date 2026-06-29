@@ -1,10 +1,10 @@
-```html
+```html id="hu9lqi"
 <!DOCTYPE html>
 <html lang="nl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bijlage A - Special Message</title>
+<title>Bijlage Z</title>
 
 <style>
 * {
@@ -28,7 +28,7 @@ body {
 .card {
     background: white;
     width: 100%;
-    max-width: 420px;
+    max-width: 460px;
     border-radius: 24px;
     overflow: hidden;
     box-shadow: 0 15px 40px rgba(0,0,0,0.15);
@@ -48,48 +48,170 @@ h1 {
     color: #777;
     text-align: center;
     margin-bottom: 24px;
+    line-height: 1.5;
 }
 
 .message {
-    font-size: 1.1rem;
-    line-height: 1.7;
+    font-size: 1.05rem;
+    line-height: 1.65;
     text-align: center;
-    margin-bottom: 28px;
+    margin-bottom: 26px;
+}
+
+.wordsearch-wrapper {
+    margin: 24px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.wordsearch {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 5px;
+    width: 100%;
+    max-width: 360px;
+    user-select: none;
+    touch-action: none;
+}
+
+.cell {
+    aspect-ratio: 1 / 1;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fafafa;
+    color: #222;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.12s ease;
+}
+
+.cell:hover {
+    background: #f0f4ff;
+}
+
+.cell.selected {
+    background: #007AFF;
+    color: white;
+    border-color: #007AFF;
+    text-decoration: line-through;
+    transform: scale(0.96);
+}
+
+.controls {
+    text-align: center;
+    margin-top: 14px;
+}
+
+.reset-button {
+    border: none;
+    background: #eeeeee;
+    color: #333;
+    padding: 10px 16px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.reset-button:hover {
+    background: #e0e0e0;
+}
+
+.words {
+    margin: 24px 0;
+    text-align: center;
+}
+
+.words h2 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+}
+
+.word-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px 14px;
+    list-style: none;
+    color: #444;
+    font-size: 0.98rem;
+}
+
+.signature {
+    text-align: center;
+    line-height: 1.6;
+    margin-top: 28px;
 }
 
 .footer {
     border-top: 1px solid #eee;
     padding-top: 18px;
+    margin-top: 22px;
     text-align: center;
     color: #888;
     font-size: 0.95rem;
 }
 
-.button {
-    display: inline-block;
-    margin-top: 20px;
-    background: #007AFF;
-    color: white;
-    text-decoration: none;
-    padding: 14px 26px;
-    border-radius: 14px;
-    font-weight: 600;
-    transition: .2s;
+.photo-section {
+    margin-top: 28px;
+    text-align: center;
 }
 
-.button:hover {
-    background: #0064d2;
+.photo-title {
+    font-weight: 700;
+    margin-bottom: 12px;
 }
 
-hr {
-    border: none;
-    border-top: 1px solid #eee;
-    margin: 4px 0;
+.photo-placeholder {
+    width: 100%;
+    min-height: 260px;
+    border: 2px dashed #cfcfcf;
+    border-radius: 20px;
+    background: #fafafa;
+    color: #888;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 24px;
+    line-height: 1.5;
+}
+
+/*
+    Om later een echte foto toe te voegen:
+    1. Zet je foto in dezelfde GitHub repo, bijvoorbeeld: domme-foto.jpg
+    2. Vervang de volledige <div class="photo-placeholder">...</div> onderaan door:
+
+    <img class="silly-photo" src="domme-foto.jpg" alt="Bewijsmateriaal van de QR-commissie">
+*/
+
+.silly-photo {
+    width: 100%;
+    display: block;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+@media (max-width: 420px) {
+    .content {
+        padding: 22px;
+    }
+
+    .cell {
+        font-size: 0.9rem;
+        border-radius: 7px;
+    }
+
+    .word-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (prefers-color-scheme: dark) {
     body {
-        background: linear-gradient(135deg,#1b1b1b,#2d2d2d);
+        background: linear-gradient(135deg, #1b1b1b, #2d2d2d);
     }
 
     .card {
@@ -102,9 +224,42 @@ hr {
         color: #bdbdbd;
     }
 
-    .footer,
-    hr {
+    .footer {
         border-color: #333;
+    }
+
+    .cell {
+        background: #2f2f2f;
+        color: white;
+        border-color: #444;
+    }
+
+    .cell:hover {
+        background: #3a3a3a;
+    }
+
+    .cell.selected {
+        background: #0A84FF;
+        border-color: #0A84FF;
+    }
+
+    .reset-button {
+        background: #3a3a3a;
+        color: white;
+    }
+
+    .reset-button:hover {
+        background: #4a4a4a;
+    }
+
+    .word-list {
+        color: #dddddd;
+    }
+
+    .photo-placeholder {
+        background: #2f2f2f;
+        border-color: #555;
+        color: #bdbdbd;
     }
 }
 </style>
@@ -113,125 +268,267 @@ hr {
 <body>
 
 <div class="card">
-
     <div class="content">
 
-        <h1>📑 BIJLAGE A</h1>
+        <h1>📑 BIJLAGE Z</h1>
 
         <p class="subtitle">
-            Vertrouwelijk - Enkel toegankelijk voor aandeelhouders die ver genoeg
-            gaan om QR-codes op een trouwfeest te scannen.
-            <br><br>
-            Bijlage opgesteld door de onafhankelijke QR-commissie:
-            <strong>DoubleLou</strong> & <strong>SnorlaxingSenne</strong>.
+            Niet officieel.<br>
+            Niet nuttig.<br>
+            Wel verdacht.
         </p>
 
         <div class="message">
-
-            <strong>Allereerst...</strong>
-
-            <br><br>
-
-            Echt waar?
+            <p><strong>Proficiat.</strong></p>
 
             <br>
 
-            Hebben jullie nu écht een QR-code gescand op jullie eigen trouwfeest?
-
-            <br><br>
-
-            Wij hadden eerlijk gezegd niet verwacht dat iemand zo nieuwsgierig zou zijn.
-
-            <br><br>
-
-            Maar goed.
+            <p>
+                Jullie waren op een trouwfeest en dachten:
+            </p>
 
             <br>
 
-            Aangezien jullie hier nu toch zijn, voegen wij graag nog één extra bijlage toe
-            aan het dossier.
-
-            <br><br>
-
-            Voor alle duidelijkheid: dit document werd niet opgesteld door de Raad van Bestuur.
+            <p>
+                “Hmm, laat ik eens een willekeurige QR-code scannen.”
+            </p>
 
             <br>
 
-            Die had vandaag al genoeg werk met activa, passiva, incidentenrapporten
-            en een toch wel bijzonder grondige due diligence.
-
-            <br><br>
-
-            Deze bijlage komt van een kleinere, volledig onbevoegde,
-            maar zeer betrokken commissie:
-
-            <br><br>
-
-            <strong>DoubleLou & SnorlaxingSenne.</strong>
-
-            <br><br><hr><br>
-
-            Na eigen onderzoek, lichte emotionele betrokkenheid en een volledig onofficiële
-            stemming, kunnen wij bevestigen dat de fusie tussen
-            <strong>Alexander BV</strong> en
-            <strong>Lies BV</strong> zonder enige twijfel de beste investering van vandaag is.
-
-            <br><br>
-
-            Alexander, je krijgt er vandaag niet alleen een vrouw bij,
-            maar ook een schoonfamilie die QR-codes verstopt,
-            documenten vervalst in HTML,
-            en dit waarschijnlijk veel te grappig vindt.
-
-            <br><br>
-
-            Lies, jij krijgt er vandaag iemand bij die volgens het dossier
-            academisch sterk is, technisch onderlegd,
-            culinair inzetbaar,
-            en hopelijk intussen heeft geleerd dat deuren beter in hun scharnieren blijven.
-
-            <br><br>
-
-            Samen wensen wij jullie een leven vol liefde,
-            geluk,
-            avontuur,
-            lekker eten,
-            veel gelach,
-            gezonde discussies die zonder gestolen deuren worden opgelost,
-            en vooral ontzettend veel mooie herinneringen samen.
-
-            <br><br>
-
-            Bedankt dat wij vandaag getuige mogen zijn van zo'n bijzondere dag.
-
-            <br><br>
-
-            We zien jullie enorm graag. ❤️
-
-            <br><br>
-
-            <strong>Met liefde,</strong>
+            <p>
+                Dat vinden wij tegelijk zorgwekkend en uitstekend aandeelhouderschap.
+            </p>
 
             <br>
 
-            DoubleLou & SnorlaxingSenne
+            <p>
+                Geniet van deze gratis woordzoeker met hidden message.
+            </p>
+        </div>
 
-            <br><br>
+        <div class="wordsearch-wrapper">
+            <div class="wordsearch" id="wordsearch" aria-label="Interactieve woordzoeker">
+                <!-- Row 1 -->
+                <button class="cell">A</button>
+                <button class="cell">H</button>
+                <button class="cell">U</button>
+                <button class="cell">W</button>
+                <button class="cell">E</button>
+                <button class="cell">L</button>
+                <button class="cell">I</button>
+                <button class="cell">J</button>
+                <button class="cell">K</button>
+                <button class="cell">T</button>
 
-            <em>
-                Officieel uitgeroepen tot meest verdachte QR-commissie van de avond,
-                na een unanieme stemming van onszelf.
-            </em>
+                <!-- Row 2 -->
+                <button class="cell">D</button>
+                <button class="cell">L</button>
+                <button class="cell">I</button>
+                <button class="cell">F</button>
+                <button class="cell">K</button>
+                <button class="cell">K</button>
+                <button class="cell">E</button>
+                <button class="cell">E</button>
+                <button class="cell">S</button>
+                <button class="cell">H</button>
 
+                <!-- Row 3 -->
+                <button class="cell">P</button>
+                <button class="cell">R</button>
+                <button class="cell">E</button>
+                <button class="cell">B</button>
+                <button class="cell">U</button>
+                <button class="cell">G</button>
+                <button class="cell">O</button>
+                <button class="cell">A</button>
+                <button class="cell">F</button>
+                <button class="cell">A</button>
+
+                <!-- Row 4 -->
+                <button class="cell">I</button>
+                <button class="cell">C</button>
+                <button class="cell">O</button>
+                <button class="cell">X</button>
+                <button class="cell">G</button>
+                <button class="cell">S</button>
+                <button class="cell">N</button>
+                <button class="cell">I</button>
+                <button class="cell">A</button>
+                <button class="cell">I</button>
+
+                <!-- Row 5 -->
+                <button class="cell">T</button>
+                <button class="cell">O</button>
+                <button class="cell">V</button>
+                <button class="cell">U</button>
+                <button class="cell">A</button>
+                <button class="cell">S</button>
+                <button class="cell">I</button>
+                <button class="cell">A</button>
+                <button class="cell">N</button>
+                <button class="cell">L</button>
+
+                <!-- Row 6 -->
+                <button class="cell">M</button>
+                <button class="cell">D</button>
+                <button class="cell">R</button>
+                <button class="cell">E</button>
+                <button class="cell">A</button>
+                <button class="cell">N</button>
+                <button class="cell">A</button>
+                <button class="cell">E</button>
+                <button class="cell">G</button>
+                <button class="cell">A</button>
+
+                <!-- Row 7 -->
+                <button class="cell">R</button>
+                <button class="cell">B</button>
+                <button class="cell">Z</button>
+                <button class="cell">U</button>
+                <button class="cell">S</button>
+                <button class="cell">O</button>
+                <button class="cell">D</button>
+                <button class="cell">R</button>
+                <button class="cell">O</button>
+                <button class="cell">N</button>
+
+                <!-- Row 8 -->
+                <button class="cell">T</button>
+                <button class="cell">S</button>
+                <button class="cell">R</button>
+                <button class="cell">U</button>
+                <button class="cell">E</button>
+                <button class="cell">D</button>
+                <button class="cell">T</button>
+                <button class="cell">E</button>
+                <button class="cell">I</button>
+                <button class="cell">D</button>
+
+                <!-- Row 9 -->
+                <button class="cell">E</button>
+                <button class="cell">N</button>
+                <button class="cell">E</button>
+                <button class="cell">R</button>
+                <button class="cell">S</button>
+                <button class="cell">E</button>
+                <button class="cell">I</button>
+                <button class="cell">L</button>
+                <button class="cell">R</button>
+                <button class="cell">A</button>
+
+                <!-- Row 10 -->
+                <button class="cell">D</button>
+                <button class="cell">O</button>
+                <button class="cell">S</button>
+                <button class="cell">S</button>
+                <button class="cell">I</button>
+                <button class="cell">E</button>
+                <button class="cell">R</button>
+                <button class="cell">D</button>
+                <button class="cell">S</button>
+                <button class="cell">!</button>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="reset-button" id="resetButton">Reset verdachte selectie</button>
+        </div>
+
+        <div class="words">
+            <h2>Te zoeken woorden:</h2>
+            <ul class="word-list">
+                <li>Alexander</li>
+                <li>Brugge</li>
+                <li>fusie</li>
+                <li>Sansa</li>
+                <li>Aria</li>
+                <li>deur</li>
+                <li>Huwelijk</li>
+                <li>Thailand</li>
+                <li>boom</li>
+                <li>dossier</li>
+                <li>Lies</li>
+                <li>zus</li>
+            </ul>
+        </div>
+
+        <div class="signature">
+            <p>Met twijfelachtige trots,</p>
+
+            <br>
+
+            <p><strong>DoubleLou & SnorlaxingSenne</strong></p>
+
+            <br>
+
+            <p>
+                <em>
+                    Officieel uitgeroepen tot meest verdachte QR-commissie van de avond,
+                    na een unanieme stemming van onszelf.
+                </em>
+            </p>
         </div>
 
         <div class="footer">
             Documentstatus: Ongevraagd toegevoegd, maar definitief goedgekeurd ✔️
         </div>
 
-    </div>
+        <div class="photo-section">
+            <p class="photo-title">📸 Bijkomend bewijsmateriaal</p>
 
+            <div class="photo-placeholder">
+                Plaats hier een domme foto van onszelf.<br>
+                Bij voorkeur eentje die dit hele dossier niet helpt.
+            </div>
+        </div>
+
+    </div>
 </div>
+
+<script>
+const cells = document.querySelectorAll(".cell");
+const resetButton = document.getElementById("resetButton");
+
+let isDragging = false;
+let dragMode = true;
+
+function setCellState(cell) {
+    if (!cell || !cell.classList.contains("cell")) return;
+    cell.classList.toggle("selected", dragMode);
+}
+
+cells.forEach(cell => {
+    cell.addEventListener("pointerdown", event => {
+        event.preventDefault();
+        isDragging = true;
+        dragMode = !cell.classList.contains("selected");
+        setCellState(cell);
+        cell.setPointerCapture(event.pointerId);
+    });
+
+    cell.addEventListener("pointerenter", () => {
+        if (isDragging) {
+            setCellState(cell);
+        }
+    });
+
+    cell.addEventListener("pointerup", () => {
+        isDragging = false;
+    });
+
+    cell.addEventListener("pointercancel", () => {
+        isDragging = false;
+    });
+});
+
+document.addEventListener("pointerup", () => {
+    isDragging = false;
+});
+
+resetButton.addEventListener("click", () => {
+    cells.forEach(cell => cell.classList.remove("selected"));
+});
+</script>
 
 </body>
 </html>
