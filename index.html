@@ -1,4 +1,6 @@
-```html id="hu9lqi"
+Zeker, hier is de volledige aangepaste HTML met bredere mobiele layout, interactieve woordzoeker en placeholder voor jullie domme foto achteraan.
+
+```html
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -22,13 +24,13 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding: 24px;
+    padding: 12px;
 }
 
 .card {
     background: white;
     width: 100%;
-    max-width: 460px;
+    max-width: 540px;
     border-radius: 24px;
     overflow: hidden;
     box-shadow: 0 15px 40px rgba(0,0,0,0.15);
@@ -59,34 +61,43 @@ h1 {
 }
 
 .wordsearch-wrapper {
-    margin: 24px 0;
+    margin: 22px auto;
+    width: 100%;
     display: flex;
     justify-content: center;
+    overflow: hidden;
 }
 
 .wordsearch {
     display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    gap: 5px;
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+    gap: 4px;
     width: 100%;
-    max-width: 360px;
+    max-width: 380px;
     user-select: none;
     touch-action: none;
 }
 
 .cell {
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
     aspect-ratio: 1 / 1;
+    padding: 0;
     border: 1px solid #ddd;
     border-radius: 8px;
     background: #fafafa;
     color: #222;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 700;
+    line-height: 1;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: 0.12s ease;
+    -webkit-appearance: none;
+    appearance: none;
 }
 
 .cell:hover {
@@ -195,17 +206,54 @@ h1 {
 }
 
 @media (max-width: 420px) {
+    body {
+        padding: 6px;
+    }
+
+    .card {
+        max-width: 100%;
+        border-radius: 18px;
+    }
+
     .content {
-        padding: 22px;
+        padding: 20px 12px;
+    }
+
+    h1 {
+        font-size: 1.85rem;
+    }
+
+    .message {
+        font-size: 1rem;
+    }
+
+    .wordsearch {
+        max-width: 100%;
+        gap: 3px;
     }
 
     .cell {
-        font-size: 0.9rem;
-        border-radius: 7px;
+        font-size: 0.85rem;
+        border-radius: 6px;
     }
 
     .word-list {
         grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 340px) {
+    .content {
+        padding: 18px 8px;
+    }
+
+    .wordsearch {
+        gap: 2px;
+    }
+
+    .cell {
+        font-size: 0.78rem;
+        border-radius: 5px;
     }
 }
 
@@ -308,7 +356,6 @@ h1 {
 
         <div class="wordsearch-wrapper">
             <div class="wordsearch" id="wordsearch" aria-label="Interactieve woordzoeker">
-                <!-- Row 1 -->
                 <button class="cell">A</button>
                 <button class="cell">H</button>
                 <button class="cell">U</button>
@@ -320,7 +367,6 @@ h1 {
                 <button class="cell">K</button>
                 <button class="cell">T</button>
 
-                <!-- Row 2 -->
                 <button class="cell">D</button>
                 <button class="cell">L</button>
                 <button class="cell">I</button>
@@ -332,7 +378,6 @@ h1 {
                 <button class="cell">S</button>
                 <button class="cell">H</button>
 
-                <!-- Row 3 -->
                 <button class="cell">P</button>
                 <button class="cell">R</button>
                 <button class="cell">E</button>
@@ -344,7 +389,6 @@ h1 {
                 <button class="cell">F</button>
                 <button class="cell">A</button>
 
-                <!-- Row 4 -->
                 <button class="cell">I</button>
                 <button class="cell">C</button>
                 <button class="cell">O</button>
@@ -356,7 +400,6 @@ h1 {
                 <button class="cell">A</button>
                 <button class="cell">I</button>
 
-                <!-- Row 5 -->
                 <button class="cell">T</button>
                 <button class="cell">O</button>
                 <button class="cell">V</button>
@@ -368,7 +411,6 @@ h1 {
                 <button class="cell">N</button>
                 <button class="cell">L</button>
 
-                <!-- Row 6 -->
                 <button class="cell">M</button>
                 <button class="cell">D</button>
                 <button class="cell">R</button>
@@ -380,7 +422,6 @@ h1 {
                 <button class="cell">G</button>
                 <button class="cell">A</button>
 
-                <!-- Row 7 -->
                 <button class="cell">R</button>
                 <button class="cell">B</button>
                 <button class="cell">Z</button>
@@ -392,7 +433,6 @@ h1 {
                 <button class="cell">O</button>
                 <button class="cell">N</button>
 
-                <!-- Row 8 -->
                 <button class="cell">T</button>
                 <button class="cell">S</button>
                 <button class="cell">R</button>
@@ -404,7 +444,6 @@ h1 {
                 <button class="cell">I</button>
                 <button class="cell">D</button>
 
-                <!-- Row 9 -->
                 <button class="cell">E</button>
                 <button class="cell">N</button>
                 <button class="cell">E</button>
@@ -416,7 +455,6 @@ h1 {
                 <button class="cell">R</button>
                 <button class="cell">A</button>
 
-                <!-- Row 10 -->
                 <button class="cell">D</button>
                 <button class="cell">O</button>
                 <button class="cell">S</button>
